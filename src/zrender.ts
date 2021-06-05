@@ -67,6 +67,9 @@ function isDarkMode(backgroundColor: string | GradientObject | PatternObject): b
     return false;
 }
 
+/**
+ * zrender 实例
+ */
 class ZRender {
 
     dom: HTMLElement
@@ -86,7 +89,7 @@ class ZRender {
     private _needsRefreshHover = true
 
     /**
-     * If theme is dark mode. It will determine the color strategy for labels.
+     * 如果是黑暗模式，他会决定一些颜色的渲染策略
      */
     private _darkMode = false;
 
@@ -470,10 +473,25 @@ class ZRender {
 }
 
 
+/**
+ * zrender 初始化的可选项
+ */
 export interface ZRenderInitOpt {
-    renderer?: string   // 'canvas' or 'svg
+    /**
+     * 使用canvas渲染或者svg渲染
+     */
+    renderer?: string
+    /**
+     * 设置设备像素比，如果你不设置，程序将会给你自动处理
+     */
     devicePixelRatio?: number
-    width?: number | string // 10, 10px, 'auto'
+    /**
+     * 设置画布的宽度
+     */
+    width?: number | string
+    /**
+     * 设置画布的高度
+     */
     height?: number | string
     useDirtyRect?: boolean
 }
